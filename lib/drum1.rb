@@ -40,13 +40,11 @@ class DrumMachine
     end
   end
 
-
   def single_hit_snare
     @output.open do |output|
       play_snare(output)
     end
   end
-
 
   private
 

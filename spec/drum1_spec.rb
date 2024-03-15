@@ -28,4 +28,12 @@ RSpec.describe DrumMachine, type: :class do
       expect(drums.random_pattern).to be_truthy
     end
   end
+
+  describe "#single_hit_snare" do
+    it "plays a single snare" do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      expect(drums.single_hit_snare).to be_truthy
+    end
+  end
 end
