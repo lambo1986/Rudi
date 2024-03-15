@@ -11,23 +11,31 @@ class DrumMachine
 
   def play_basic_pattern
     @output.open do |output|
-      4.times do
-        play_snare(output)
-        sleep 0.15
-        play_kick(output)
-        sleep 0.15
-        play_kick(output)
-        sleep 0.15
-        play_snare(output)
-        sleep 0.15
-        play_closed_hi_hat(output)
-        sleep 0.15
-        play_kick(output)
-        sleep 0.15
-        play_kick(output)
-        sleep 0.15
-        play_closed_hi_hat(output)
-        sleep 0.15
+      play_snare(output)
+      sleep 0.15
+      play_kick(output)
+      sleep 0.15
+      play_kick(output)
+      sleep 0.15
+      play_snare(output)
+      sleep 0.15
+      play_closed_hi_hat(output)
+      sleep 0.15
+      play_kick(output)
+      sleep 0.15
+      play_kick(output)
+      sleep 0.15
+      play_closed_hi_hat(output)
+      sleep 0.15
+    end
+
+    def random_pattern
+      @output.open do |output|
+        4.times do
+          method_name = [:play_snare, :play_kick, :play_closed_hi_hat, :play_rim].sample
+          send(method_name, output)
+          sleep 0.10
+        end
       end
     end
   end
@@ -44,5 +52,9 @@ class DrumMachine
 
   def play_closed_hi_hat(output)
     output.puts(0x90 + @channel, 42, @velocity) # Closed Hi-Hat
+  end
+
+  def play_rim(output)
+    output.puts(0x90 + @channel, 37, @velocity) # Rimshot
   end
 end

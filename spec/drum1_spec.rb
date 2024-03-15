@@ -20,4 +20,12 @@ RSpec.describe DrumMachine, type: :class do
       expect(drums.play_basic_pattern).to be_truthy
     end
   end
+
+  describe "#random_pattern" do
+    it "generates a random pattern" do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      expect(drums.random_pattern).to be_truthy
+    end
+  end
 end
