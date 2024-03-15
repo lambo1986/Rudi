@@ -31,7 +31,6 @@ RSpec.describe MonoSynth, type: :class do
     it "plays a sequence of notes without errors" do
       synth = MonoSynth.new
 
-      # Adjusted the method call to match the expected parameters
       expect { synth.play_sequence([33, 77], [97, 89], duration: 0.1, pause: 0.1) }.not_to raise_error
     end
   end
