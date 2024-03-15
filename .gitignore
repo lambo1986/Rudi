@@ -5,7 +5,9 @@
 *.gem
 *.rbc
 /.config
-/coverage/  # <- SimpleCov coverage directory
+
+coverage 
+
 /log/*
 /tmp/*
 
