@@ -8,6 +8,7 @@ class MonoSynth
     @channel = 0
   end
 
+  # Method to generate an endless stream of random notes within a range
   def random_note_generator(min_note, max_note)
     Enumerator.new do |yielder|
       loop do
@@ -16,22 +17,44 @@ class MonoSynth
     end
   end
 
-  def play
+  # Method to play random notes
+  def play_random_notes(duration: 0.07, pause: 0.005, count: 123)
     note_generator = random_note_generator(50, 90)
 
     @output.open do |output|
-      123.times do
+      count.times do
         note = note_generator.next
         velocity = [30, 45, 53, 60, 79].sample
-
-        output.puts(0x90 + @channel, note, velocity) # Note on message
-        sleep 0.07 # Duration of the note
-        output.puts(0x80 + @channel, note, velocity) # Note off message
-        sleep 0.005 # Pause between notes for clarity
+        play_note(output, note, velocity, duration, pause)
       end
     end
   end
+
+  # New method to play a predefined sequence of notes
+  def play_sequence(notes, velocities, duration: 0.07, pause: 0.005)
+    @output.open do |output|
+      notes.each_with_index do |note, index|
+        velocity = velocities[index]
+        play_note(output, note, velocity, duration, pause)
+      end
+    end
+  end
+
+  private
+
+  def play_note(output, note, velocity, duration, pause)
+    output.puts(0x90 + @channel, note, velocity) # Note on message
+    sleep duration
+    output.puts(0x80 + @channel, note, velocity) # Note off message
+    sleep pause
+  end
 end
 
-synth = MonoSynth.new
-synth.play
+# Example usage:
+mono_synth = MonoSynth.new
+mono_synth.play_random_notes(count: 50) # Play 50 random notes
+
+# Play a predefined sequence of notes
+notes = [73, 63, 44, 80, 66, 77]
+velocities = [30, 45, 53, 60, 79]
+mono_synth.play_sequence(notes, velocities)
