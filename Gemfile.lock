@@ -1,0 +1,46 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    alsa-rawmidi (0.4.0)
+      ffi (~> 1.15, >= 1.15.5)
+    coderay (1.1.3)
+    diff-lcs (1.5.1)
+    ffi (1.16.3)
+    ffi-coremidi (0.5.1)
+      ffi (~> 1.15, >= 1.15.5)
+    method_source (1.0.0)
+    midi-jruby (0.2.0)
+    midi-winmm (0.1.10)
+      ffi (>= 1.0)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    unimidi (0.5.1)
+      alsa-rawmidi (~> 0.4, >= 0.4.0)
+      ffi-coremidi (~> 0.5, >= 0.5.1)
+      midi-jruby (~> 0.2, >= 0.2.0)
+      midi-winmm (~> 0.1, >= 0.1.10)
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  pry
+  rspec
+  unimidi
+
+BUNDLED WITH
+   2.4.20
