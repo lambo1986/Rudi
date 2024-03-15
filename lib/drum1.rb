@@ -1,7 +1,7 @@
 require 'unimidi'
 
 # Prompt the user to select an output
-output = UniMIDI::Output.gets
+output = UniMIDI::Output.use(9)
 
 # Drum channel (in MIDI, channel 10 is for percussion, but it's 0-indexed in programming, so we use 9)
 channel = 9

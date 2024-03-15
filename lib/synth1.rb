@@ -1,16 +1,19 @@
 require 'unimidi'
 
-# Prompt the user to select an output
-output = UniMIDI::Output.gets
+# Select the first available MIDI output
+output = UniMIDI::Output.use(0)
 
-# Use a channel (0-15), note (0-127), and velocity (0-127)
+# Assign the channel directly (for channel 10, we use 9)
 channel = 0
+
+# Define a note, velocity, and duration
 note = 60 # Middle C
 velocity = 100
+duration = 0.5
 
-# Send a note on and note off message
+# Send a note on and note off message to play the note
 output.open do |output|
-  output.puts(0x90 + channel, note, velocity) # Note on
-  sleep 0.5 # Hold the note for half a second
-  output.puts(0x80 + channel, note, velocity) # Note off
+  output.puts(0x90 + channel, note, velocity) # Note on message
+  sleep duration
+  output.puts(0x80 + channel, note, velocity) # Note off message
 end
