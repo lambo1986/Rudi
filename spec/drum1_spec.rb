@@ -1,1 +1,23 @@
-require 'unimidi'
+require "unimidi"
+require "./lib/drum1.rb"
+
+RSpec.describe DrumMachine, type: :class do
+  describe '#initialize' do
+    it 'initializes a new DrumMachine' do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      expect(drums).to be_a DrumMachine
+      expect(drums.output).to be_a UniMIDI::Output
+      expect(drums.velocity).to eq(100)
+      expect(drums.channel).to eq(9)
+    end
+  end
+
+  describe "#play_basic_pattern" do
+    it 'plays a basic pattern' do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      expect(drums.play_basic_pattern).to be_truthy
+    end
+  end
+end

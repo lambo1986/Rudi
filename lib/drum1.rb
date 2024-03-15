@@ -1,4 +1,4 @@
-require 'unimidi'
+require "unimidi"
 
 class DrumMachine
   attr_reader :output, :channel, :velocity
@@ -11,7 +11,7 @@ class DrumMachine
 
   def play_basic_pattern
     @output.open do |output|
-      16.times do
+      4.times do
         play_snare(output)
         sleep 0.15
         play_kick(output)
