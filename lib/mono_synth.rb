@@ -18,7 +18,7 @@ class MonoSynth
   end
 
   # Method to play random notes
-  def play_random_notes(duration: 0.07, pause: 0.005, count: 123)
+  def play_random_notes(duration: 0.23, pause: 0.13, count: 123)
     note_generator = random_note_generator(50, 90)
 
     @output.open do |output|
@@ -50,11 +50,24 @@ class MonoSynth
   end
 end
 
-# Example usage:
 mono_synth = MonoSynth.new
-mono_synth.play_random_notes(count: 50) # Play 50 random notes
+
+# Play a random sequence of notes
+mono_synth.play_random_notes(count: 13)
 
 # Play a predefined sequence of notes
 notes = [73, 63, 44, 80, 66, 77]
-velocities = [30, 45, 53, 60, 79]
-mono_synth.play_sequence(notes, velocities)
+velocities = [30, 45, 53, 60, 79, 55]
+
+13.times do
+  mono_synth.play_sequence(notes, velocities)
+end
+
+notes = notes.reverse
+velocities = (50..111).to_a.take(6)
+
+23.times do
+  mono_synth.play_sequence(notes, velocities, duration: 0.11)
+end
+
+mono_synth.play_sequence([73, 63, 44], [30, 45, 57], duration: 0.33)
