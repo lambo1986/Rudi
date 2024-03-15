@@ -32,7 +32,7 @@ end
   sleep 0.075
 end
 
-36.times do
+35.times do
   drum_machine.funk_walk(0.075)
 end
 
@@ -41,7 +41,7 @@ end
   sleep 0.087
 end
 
-24.times do
+23.times do
   drum_machine.funk_walk(0.087)
 end
 
