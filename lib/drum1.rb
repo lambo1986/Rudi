@@ -1,26 +1,48 @@
 require 'unimidi'
 
-# Prompt the user to select an output
-output = UniMIDI::Output.use(9)
+class DrumMachine
+  attr_reader :output, :channel, :velocity
 
-# Drum channel (in MIDI, channel 10 is for percussion, but it's 0-indexed in programming, so we use 9)
-channel = 9
+  def initialize(output_index: 0, channel: 9, velocity: 100)
+    @output = UniMIDI::Output.use(output_index)
+    @channel = channel
+    @velocity = velocity
+  end
 
-# Example MIDI note numbers for different drum sounds
-kick = 36 # Kick drum
-snare = 38 # Snare drum
-closed_hi_hat = 42 # Closed Hi-Hat
+  def play_basic_pattern
+    @output.open do |output|
+      16.times do
+        play_snare(output)
+        sleep 0.15
+        play_kick(output)
+        sleep 0.15
+        play_kick(output)
+        sleep 0.15
+        play_snare(output)
+        sleep 0.15
+        play_closed_hi_hat(output)
+        sleep 0.15
+        play_kick(output)
+        sleep 0.15
+        play_kick(output)
+        sleep 0.15
+        play_closed_hi_hat(output)
+        sleep 0.15
+      end
+    end
+  end
 
-velocity = 100 # Velocity (volume) of the note, range: 0-127
+  private
 
-# Send a basic drum pattern
-output.open do |output|
-  4.times do
-    output.puts(0x90 + channel, kick, velocity) # Kick drum
-    sleep 0.5
-    output.puts(0x90 + channel, snare, velocity) # Snare drum
-    sleep 0.25
-    output.puts(0x90 + channel, closed_hi_hat, velocity) # Closed Hi-Hat
-    sleep 0.25
+  def play_kick(output)
+    output.puts(0x90 + @channel, 36, @velocity) # Kick drum
+  end
+
+  def play_snare(output)
+    output.puts(0x90 + @channel, 38, @velocity) # Snare drum
+  end
+
+  def play_closed_hi_hat(output)
+    output.puts(0x90 + @channel, 42, @velocity) # Closed Hi-Hat
   end
 end
