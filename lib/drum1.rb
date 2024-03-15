@@ -28,17 +28,25 @@ class DrumMachine
       play_closed_hi_hat(output)
       sleep 0.15
     end
+  end
 
-    def random_pattern
-      @output.open do |output|
-        4.times do
-          method_name = [:play_snare, :play_kick, :play_closed_hi_hat, :play_rim].sample
-          send(method_name, output)
-          sleep 0.10
-        end
+  def random_pattern
+    @output.open do |output|
+      4.times do
+        method_name = [:play_snare, :play_kick, :play_closed_hi_hat, :play_rim].sample
+        send(method_name, output)
+        sleep 0.10
       end
     end
   end
+
+
+  def single_hit_snare
+    @output.open do |output|
+      play_snare(output)
+    end
+  end
+
 
   private
 
