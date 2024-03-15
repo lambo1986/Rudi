@@ -1,0 +1,20 @@
+# Ignore Mac system files
+.DS_Store
+
+# Ignore Ruby generated files
+*.gem
+*.rbc
+/.config
+/coverage/  # <- SimpleCov coverage directory
+/log/*
+/tmp/*
+
+# Ignore saved files from text editors or IDEs
+**/*.swp
+**/*.bak
+**/*~
+**/.#*
+
+# Ignore specific environment configuration files
+/config/database.yml
+/public/system

@@ -1,0 +1,17 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/lambo/Rudi/spec/drum1_spec.rb": {
+        "lines": [
+          1
+        ]
+      },
+      "/Users/lambo/Rudi/spec/mono_synth_spec.rb": {
+        "lines": [
+          1
+        ]
+      }
+    },
+    "timestamp": 1710515300
+  }
+}
