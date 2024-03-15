@@ -40,6 +40,27 @@ class DrumMachine
     end
   end
 
+  def funk_walk(tempo)
+    @output.open do |output|
+      [play_kick(output), play_closed_hi_hat(output), play_ride(output)]
+      sleep tempo
+      play_closed_hi_hat(output)
+      sleep tempo
+      [play_kick(output), play_closed_hi_hat(output)]
+      sleep tempo
+      play_closed_hi_hat(output)
+      sleep tempo
+      [play_snare(output), play_ride(output)]
+      sleep tempo
+      play_closed_hi_hat(output)
+      sleep tempo
+      play_closed_hi_hat(output)
+      sleep tempo
+      [play_closed_hi_hat(output), play_rim(output)]
+      sleep tempo
+    end
+  end
+
   def single_hit_snare
     @output.open do |output|
       play_snare(output)
@@ -62,5 +83,25 @@ class DrumMachine
 
   def play_rim(output)
     output.puts(0x90 + @channel, 37, @velocity) # Rimshot
+  end
+
+  def play_clap(output)
+    output.puts(0x90 + @channel, 39, @velocity) # Clap
+  end
+
+  def play_open_hi_hat(output)
+    output.puts(0x90 + @channel, 46, @velocity) # Open Hi-Hat
+  end
+
+  def play_cymbal(output)
+    output.puts(0x90 + @channel, 49, @velocity) # Cymbal
+  end
+
+  def play_ride(output)
+    output.puts(0x90 + @channel, 51, @velocity) # Ride
+  end
+
+  def play_kick2(output)
+    output.puts(0x90 + @channel, 35, @velocity) # Additional Kick (Kick2)
   end
 end
