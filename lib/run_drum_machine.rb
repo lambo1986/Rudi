@@ -30,15 +30,15 @@ end
   sleep 0.075
 end
 
-48.times do
+36.times do
   drum_machine.funk_walk(0.075)
 end
 
 24.times do
   drum_machine.single_hit_snare
-  sleep 0.075
+  sleep 0.087
 end
 
-48.times do
+24.times do
   drum_machine.funk_walk(0.087)
 end
