@@ -12,10 +12,12 @@ end
   sleep 0.03
 end
 
-23.times do
+23.times do |i|
   drum_machine.single_hit_snare
-  sleep 0.05
+  sleep 0.05 unless i == 22
 end
+
+drum_machine.single_crash_kick
 
 16.times do
   drum_machine.play_basic_pattern

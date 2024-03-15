@@ -67,6 +67,12 @@ class DrumMachine
     end
   end
 
+  def single_crash_kick
+    @output.open do |output|
+      [play_cymbal(output), play_kick2(output)]
+    end
+  end
+
   private
 
   def play_kick(output)
