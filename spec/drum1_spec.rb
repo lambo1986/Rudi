@@ -49,7 +49,7 @@ RSpec.describe DrumMachine, type: :class do
     it "goes SMASH-BOOM" do
       drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
 
-      exspect(drums.single_crash_kick).to be_truthy
+      expect(drums.single_crash_kick).to be_truthy
     end
   end
 end
