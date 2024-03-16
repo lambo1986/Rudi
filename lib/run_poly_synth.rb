@@ -9,7 +9,7 @@ ab_major_sixth_chord = [56, 60, 63, 65]
 bb_minor_seventh_chord = [58, 61, 65, 72]
 velocity = 100
 duration = 0.3
-pause = 0.1
+pause = 0.15
 
 2.times do
   4.times do
