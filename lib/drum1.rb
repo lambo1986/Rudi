@@ -73,15 +73,15 @@ class DrumMachine
     end
   end
 
-  def punk_it_up
+  def punk_it_up(tempo)
     2.times do
       single_crash_kick
-      sleep 0.13
+      sleep tempo
     end
     single_hit_snare
-    sleep 0.13
+    sleep tempo
     single_crash_kick
-    sleep 0.13
+    sleep tempo
   end
   private
 

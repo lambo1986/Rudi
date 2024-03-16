@@ -57,7 +57,7 @@ RSpec.describe DrumMachine, type: :class do
     it "plays punk it up" do
       drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
 
-      expect(drums.punk_it_up).to be_truthy
+      expect(drums.punk_it_up(0.13)).to be_truthy
     end
   end
 end

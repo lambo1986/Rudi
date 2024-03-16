@@ -76,7 +76,7 @@ end
     2. times do
       drum_machine.funk_walk(0.067)
       3.times do
-        drum_machine.punk_it_up(0.061)
+        drum_machine.punk_it_up(0.13)
         43.times do |i|
           drum_machine.single_hit_snare
           sleep 0.0095 unless i == 42
