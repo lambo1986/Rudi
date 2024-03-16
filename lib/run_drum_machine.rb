@@ -21,7 +21,6 @@ drum_machine.single_crash_kick
 
 16.times do
   drum_machine.play_basic_pattern
-
   6.times do
     drum_machine.random_pattern
   end
@@ -62,10 +61,27 @@ end
 
 23.times do |i|
   drum_machine.single_hit_snare
-  sleep 0.05 unless i == 22
+  sleep 0.05
 end
 
-19.times do
+19.times do |i|
   drum_machine.single_crash_kick
-  sleep 0.07
+  sleep 0.07 unless i == 18
+end
+
+11.times do
+  drum_machine.play_basic_pattern
+  3.times do
+    drum_machine.random_pattern
+    2. times do
+      drum_machine.funk_walk(0.067)
+      3.times do
+        drum_machine.punk_it_up(0.061)
+        43.times do |i|
+          drum_machine.single_hit_snare
+          sleep 0.0095 unless i == 42
+        end
+      end
+    end
+  end
 end

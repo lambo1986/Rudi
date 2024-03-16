@@ -73,6 +73,16 @@ class DrumMachine
     end
   end
 
+  def punk_it_up
+    2.times do
+      single_crash_kick
+      sleep 0.13
+    end
+    single_hit_snare
+    sleep 0.13
+    single_crash_kick
+    sleep 0.13
+  end
   private
 
   def play_kick(output)

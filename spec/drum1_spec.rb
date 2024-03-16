@@ -52,4 +52,12 @@ RSpec.describe DrumMachine, type: :class do
       expect(drums.single_crash_kick).to be_truthy
     end
   end
+
+  describe "#punk_it_up" do
+    it "plays punk it up" do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      expect(drums.punk_it_up).to be_truthy
+    end
+  end
 end
