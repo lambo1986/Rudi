@@ -69,19 +69,20 @@ end
   sleep 0.07 unless i == 18
 end
 
-5.times do
+2.times do
+  drum_machine.funk_walk(0.051)
+  drum_machine.random_pattern
   drum_machine.play_basic_pattern
-  3.times do
+  2.times do
     drum_machine.random_pattern
+    drum_machine.funk_walk(0.067)
     2.times do
-      drum_machine.funk_walk(0.067)
-      3.times do
-        drum_machine.punk_it_up(0.13)
-        total_hits = rand(23..62)
-        total_hits.times do |i|
-          drum_machine.single_hit_snare
-          sleep rand(0.0047..0.013) unless i == total_hits - 1 
-        end
+      drum_machine.punk_it_up(0.13)
+      drum_machine.random_pattern
+      total_hits = rand(11..67)
+      total_hits.times do |i|
+        drum_machine.single_hit_snare
+        sleep rand(0.0037..0.1777) unless i == total_hits - 1
       end
     end
   end
@@ -89,5 +90,5 @@ end
 
 23.times do |i|
   drum_machine.single_crash_kick
-  sleep 0.07 unless i == 18
+  sleep 0.07
 end
