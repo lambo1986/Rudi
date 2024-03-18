@@ -1,6 +1,8 @@
 require "unimidi"
-
+require "./modules/lfo_module.rb"
 class DrumMachine
+  include LFO
+
   attr_reader :output, :channel, :velocity
 
   def initialize(output_index: 0, channel: 9, velocity: 100)
@@ -8,6 +10,11 @@ class DrumMachine
     @channel = channel
     @velocity = velocity
   end
+
+  def modulate_cymbal_tune
+    apply_lfo(@output, 61, 64, 127, 0.1)
+  end
+
 
   def play_basic_pattern
     @output.open do |output|
@@ -85,7 +92,7 @@ class DrumMachine
   end
 
   def set_rim_tune(tune_value)
-    cc_number = 46 
+    cc_number = 46
     @output.puts(0xB0 + @channel, cc_number, tune_value)
   end
 

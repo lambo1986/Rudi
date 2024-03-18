@@ -1,4 +1,4 @@
-require_relative 'drum1.rb'
+require './runners/drum1.rb'
 
 drum_machine = DrumMachine.new
 

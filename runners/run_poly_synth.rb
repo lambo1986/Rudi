@@ -1,4 +1,4 @@
-require_relative 'poly_synth.rb'
+require './runners/poly_synth.rb'
 
 poly_synth = PolySynth.new
 

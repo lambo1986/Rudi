@@ -1,4 +1,4 @@
-require_relative 'mono_synth.rb'
+require './runners/mono_synth.rb'
 
 mono_synth = MonoSynth.new
 
