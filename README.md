@@ -52,7 +52,7 @@ rudi.play_melody
 rudi.random_pattern
 ```
 
-Feel free to explore the documentation and example scripts included in the project for more advanced uses and sequencing techniques.
+Feel free to explore the documentation and example scripts included in the project for more advanced uses and sequencing techniques. Be sure to write your own methods in order to create your desired sequence. Use a new runner file to make a new composition, and require the relevant file to trigger the synthesizer.
 
 ## How to Contribute
 
@@ -71,4 +71,4 @@ Contributions are what make the open-source community such an amazing place to l
 
 Join me in redefining the boundaries of music production with Rudi, where your code composes the soundtrack.
 
-***Nathan Kirk Lambertson*
+***Nathan Kirk Lambertson***
