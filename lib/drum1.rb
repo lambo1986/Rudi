@@ -83,6 +83,57 @@ class DrumMachine
     single_crash_kick
     sleep tempo
   end
+
+  def set_rim_tune(tune_value)
+    cc_number = 46 
+    @output.puts(0xB0 + @channel, cc_number, tune_value)
+  end
+
+  def juicy_walk(tempo)
+    output.open do |output|
+      2.times do |i|
+        rim_tune_value = i == 0 ? rand(38..41) : rand(29..37)
+        set_rim_tune(rim_tune_value)
+
+        if i == 0
+          [play_kick2(output), play_rim(output), play_open_hi_hat(output)]
+          sleep tempo
+          play_rim(output)
+          sleep tempo
+          [play_rim(output), play_open_hi_hat(output)]
+          sleep tempo
+          play_rim(output)
+          sleep tempo
+          [play_snare(output), play_open_hi_hat(output)]
+          sleep tempo
+          play_rim(output)
+          sleep tempo
+          [play_rim(output), play_open_hi_hat(output)]
+          sleep tempo
+          play_rim(output)
+          sleep tempo
+        else
+          [play_kick2(output), play_rim(output), play_open_hi_hat(output)]
+          sleep tempo
+          [play_kick2(output), play_rim(output)]
+          sleep tempo
+          [play_rim(output), play_open_hi_hat(output)]
+          sleep tempo
+          play_rim(output)
+          sleep tempo
+          [play_snare(output), play_open_hi_hat(output)]
+          sleep tempo
+          play_rim(output)
+          sleep tempo
+          [play_rim(output), play_open_hi_hat(output)]
+          sleep tempo
+          play_rim(output)
+          sleep tempo
+        end
+      end
+    end
+  end
+
   private
 
   def play_kick(output)

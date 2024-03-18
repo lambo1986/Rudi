@@ -89,5 +89,9 @@ end
 
 57.times do |i|
   drum_machine.single_crash_kick
-  sleep 0.07
+  sleep 0.07 unless i == 56
+end
+
+32.times do
+  drum_machine.juicy_walk(0.1923)
 end
