@@ -12,8 +12,16 @@ class DrumMachine
     @velocity = velocity
   end
 
-  def modulate_ride_tune
-    apply_lfo(@output, 58, 7, 17, 0.045)
+  def modulate_ride_tune_random_lfo
+    apply_random_lfo(@output, 58, 7, 17, 0.045)
+  end
+
+  def modulate_open_hat_decay_sine_lfo
+    apply_sine_lfo(@output, 44, 47, 87, 3.01745)
+  end
+
+  def modulate_open_hat_tune_random_lfo
+    apply_random_lfo(@output, 43, 1, 127, 0.345)
   end
 
   def play_basic_pattern

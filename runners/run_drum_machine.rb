@@ -1,7 +1,6 @@
 require './lib/drum1.rb'
 
 drum_machine = DrumMachine.new
-modulation_thread = drum_machine.modulate_cymbal_tune
 
 99.times do
   drum_machine.single_hit_snare
@@ -93,6 +92,13 @@ end
   sleep 0.07 unless i == 56
 end
 
-32.times do
+16.times do
+  drum_machine.juicy_walk(0.1923)
+end
+
+drum_machine.modulate_open_hat_decay_sine_lfo
+drum_machine.modulate_open_hat_tune_random_lfo
+
+16.times do
   drum_machine.juicy_walk(0.1923)
 end

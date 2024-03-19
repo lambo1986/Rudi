@@ -69,13 +69,30 @@ RSpec.describe DrumMachine, type: :class do
     end
   end
 
-  describe "#modulate_cymbal_tune" do
-    it "modulates the cymbal tune with LFO module" do
+  describe "#modulate_ride_tune_random_lfo" do
+    it "modulates the ride tune with LFO module" do
       drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
 
-      drums.modulate_ride_tune
-      32.times { drums.funk_walk(0.087) }
+      drums.modulate_ride_tune_random_lfo
       drums.funk_walk(0.087)
+    end
+  end
+
+  describe "#modulate_open_hat_decay_sine_lfo" do
+    it "modulates the open hat decay with LFO module" do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      drums.modulate_open_hat_decay_sine_lfo
+      drums.juicy_walk(0.1923)
+    end
+  end
+
+  describe "#modulate_open_hat_tune_random_lfo" do
+    it "modulates the open hat tune with LFO module" do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      drums.modulate_open_hat_tune_random_lfo
+      drums.juicy_walk(0.1923)
     end
   end
 end
