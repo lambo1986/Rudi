@@ -95,4 +95,12 @@ RSpec.describe DrumMachine, type: :class do
       drums.juicy_walk(0.1923)
     end
   end
+
+  describe "#clap_off" do
+    it "plays clap off" do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      expect(drums.clap_off(0.23)).to be_truthy
+    end
+  end
 end

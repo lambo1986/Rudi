@@ -149,6 +149,27 @@ class DrumMachine
     end
   end
 
+  def clap_off(tempo)
+    output.open do |output|
+      [play_closed_hi_hat(output), play_kick(output), play_clap(output)]
+      sleep tempo
+      play_closed_hi_hat(output)
+      sleep tempo
+      [play_closed_hi_hat(output), play_clap(output)]
+      sleep tempo
+      play_closed_hi_hat(output)
+      sleep tempo
+      [play_closed_hi_hat(output), play_clap(output)]
+      sleep tempo
+      [play_closed_hi_hat(output), play_kick(output)]
+      sleep tempo
+      [play_closed_hi_hat(output), play_clap(output)]
+      sleep tempo
+      [play_closed_hi_hat(output), play_kick(output)]
+      sleep tempo
+    end
+  end
+
   private
 
   def play_kick(output)
