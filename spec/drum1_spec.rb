@@ -95,7 +95,7 @@ RSpec.describe DrumMachine, type: :class do
 
       drums.modulate_open_hat_tune_random_lfo
       drums.juicy_walk(0.1923)
-      expect(drums.modulate_open_hat_tune_random_lfo).to be
+      expect(drums.modulate_open_hat_tune_random_lfo).to be_truthy
     end
   end
 
