@@ -1,5 +1,6 @@
 require "unimidi"
 require "./modules/lfo_module.rb"
+
 class DrumMachine
   include LFO
 
@@ -14,7 +15,6 @@ class DrumMachine
   def modulate_cymbal_tune
     apply_lfo(@output, 61, 64, 127, 0.1)
   end
-
 
   def play_basic_pattern
     @output.open do |output|
