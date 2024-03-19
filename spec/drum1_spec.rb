@@ -75,6 +75,7 @@ RSpec.describe DrumMachine, type: :class do
 
       drums.modulate_ride_tune_random_lfo
       drums.funk_walk(0.087)
+      expect(drums.modulate_ride_tune_random_lfo).to be_truthy
     end
   end
 
@@ -84,6 +85,7 @@ RSpec.describe DrumMachine, type: :class do
 
       drums.modulate_open_hat_decay_sine_lfo
       drums.juicy_walk(0.1923)
+      expect(drums.modulate_open_hat_decay_sine_lfo).to be_truthy
     end
   end
 
@@ -93,6 +95,7 @@ RSpec.describe DrumMachine, type: :class do
 
       drums.modulate_open_hat_tune_random_lfo
       drums.juicy_walk(0.1923)
+      expect(drums.modulate_open_hat_tune_random_lfo).to be
     end
   end
 
