@@ -68,4 +68,14 @@ RSpec.describe DrumMachine, type: :class do
       expect(drums.juicy_walk(0.1923)).to be_truthy
     end
   end
+
+  describe "#modulate_cymbal_tune" do
+    it "modulates the cymbal tune with LFO module" do
+      drums = DrumMachine.new(output_index: 0, channel: 9, velocity: 100)
+
+      drums.modulate_ride_tune
+      32.times { drums.funk_walk(0.087) }
+      drums.funk_walk(0.087)
+    end
+  end
 end

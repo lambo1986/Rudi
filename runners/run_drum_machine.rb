@@ -1,6 +1,7 @@
-require './runners/drum1.rb'
+require './lib/drum1.rb'
 
 drum_machine = DrumMachine.new
+modulation_thread = drum_machine.modulate_cymbal_tune
 
 99.times do
   drum_machine.single_hit_snare

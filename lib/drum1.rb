@@ -12,8 +12,8 @@ class DrumMachine
     @velocity = velocity
   end
 
-  def modulate_cymbal_tune
-    apply_lfo(@output, 61, 64, 127, 0.1)
+  def modulate_ride_tune
+    apply_lfo(@output, 58, 7, 17, 0.045)
   end
 
   def play_basic_pattern
