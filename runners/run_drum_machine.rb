@@ -92,13 +92,13 @@ end
   sleep 0.07 unless i == 56
 end
 
-16.times do
+8.times do
   drum_machine.juicy_walk(0.1923)
 end
 
 drum_machine.modulate_open_hat_decay_sine_lfo
 drum_machine.modulate_open_hat_tune_random_lfo
 
-16.times do
+24.times do
   drum_machine.juicy_walk(0.1923)
 end
